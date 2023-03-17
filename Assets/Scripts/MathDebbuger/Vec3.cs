@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+
 namespace CustomMath
 {
     public struct Vec3 : IEquatable<Vec3>
@@ -144,9 +145,19 @@ namespace CustomMath
         {
             throw new NotImplementedException();
         }
-        public static float Distance(Vec3 a, Vec3 b)
+        public static float Distance(Vec3 a, Vec3 b) //Ready
         {
-            throw new NotImplementedException();
+            float distance = 0;
+
+            const float squaredNumber = 2;
+
+            ///https://docs.unity3d.com/es/530/ScriptReference/Mathf.Pow.html
+
+            distance = Mathf.Pow(a.x - b.x, squaredNumber) + Mathf.Pow(a.y - b.y, squaredNumber) + Mathf.Pow(a.z - b.z, squaredNumber);
+
+            ///https://docs.unity3d.com/es/530/ScriptReference/Mathf.Sqrt.html
+
+            return Mathf.Sqrt(distance); ;
         }
         public static float Dot(Vec3 a, Vec3 b)
         {
