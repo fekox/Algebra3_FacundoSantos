@@ -139,7 +139,9 @@ namespace CustomMath
         }
         public static float Magnitude(Vec3 vector)
         {
-            throw new NotImplementedException();
+            float magnitude = Mathf.Pow(vector.x, 2) + Mathf.Pow(vector.y, 2) + Mathf.Pow(vector.z, 2);
+
+            return magnitude;
         }
         public static Vec3 Cross(Vec3 a, Vec3 b)
         {
