@@ -15,13 +15,13 @@ public class Prueva : MonoBehaviour
     {
         Vector3 vector = new Vector3();
 
-        if (a.x > b.x) vector.x = a.x;
+        if (a.x < b.x) vector.x = a.x;
         else vector.x = b.x;
 
-        if (a.y > b.y) vector.y = a.y;
+        if (a.y < b.y) vector.y = a.y;
         else vector.y = b.y;
 
-        if (a.z > b.z) vector.z = a.z;
+        if (a.z < b.z) vector.z = a.z;
         else vector.z = b.z;
 
         print("Max: " + vector);
