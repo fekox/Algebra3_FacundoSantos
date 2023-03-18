@@ -9,5 +9,7 @@ public class Prueva : MonoBehaviour
     void Update()
     {
 
+        print("Vector c:" + c);
+        
     }
 }
