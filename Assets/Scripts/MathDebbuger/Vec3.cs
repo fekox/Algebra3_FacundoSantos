@@ -213,7 +213,11 @@ namespace CustomMath
         }
         public static float SqrMagnitude(Vec3 vector)
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3-sqrMagnitude.html
+
+            float sqrMagnitude = vector.x * vector.x + vector.y * vector.y + vector.z * vector.z;
+
+            return sqrMagnitude;
         }
         public static Vec3 Project(Vec3 vector, Vec3 onNormal) 
         {
