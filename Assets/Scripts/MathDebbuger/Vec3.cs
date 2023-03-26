@@ -14,7 +14,7 @@ namespace CustomMath
 
         public float sqrMagnitude { get { throw new NotImplementedException(); } }
         public Vector3 normalized { get { throw new NotImplementedException(); } }
-        public float magnitude { get { throw new NotImplementedException(); } }
+        public float magnitude { get { return Mathf.Pow(x, 2) + Mathf.Pow(y, 2) + Mathf.Pow(z, 2); } }
         #endregion
 
         #region constants
