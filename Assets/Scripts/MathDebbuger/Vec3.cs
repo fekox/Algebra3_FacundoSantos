@@ -159,17 +159,19 @@ namespace CustomMath
 
             const float squaredNumber = 2;
 
-            ///https://docs.unity3d.com/es/530/ScriptReference/Mathf.Pow.html
+            https://docs.unity3d.com/es/530/ScriptReference/Mathf.Pow.html
 
             distance = Mathf.Pow(a.x - b.x, squaredNumber) + Mathf.Pow(a.y - b.y, squaredNumber) + Mathf.Pow(a.z - b.z, squaredNumber);
 
-            ///https://docs.unity3d.com/es/530/ScriptReference/Mathf.Sqrt.html
+            https://docs.unity3d.com/es/530/ScriptReference/Mathf.Sqrt.html
 
             return Mathf.Sqrt(distance); ;
         }
         public static float Dot(Vec3 a, Vec3 b)
         {
-            throw new NotImplementedException();
+            https://docs.unity3d.com/ScriptReference/Vector3.Dot.html
+
+            return a.x * b.x + a.y * b.y + a.z * b.z;
         }
         public static Vec3 Lerp(Vec3 a, Vec3 b, float t)
         {
@@ -223,7 +225,9 @@ namespace CustomMath
         }
         public void Set(float newX, float newY, float newZ)
         {
-            throw new NotImplementedException();
+            this.x = newX;
+            this.y = newY;
+            this.z = newZ;
         }
         public void Scale(Vec3 scale)
         {
