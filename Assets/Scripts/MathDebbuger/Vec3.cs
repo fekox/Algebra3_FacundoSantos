@@ -159,17 +159,17 @@ namespace CustomMath
 
             const float squaredNumber = 2;
 
-            https://docs.unity3d.com/es/530/ScriptReference/Mathf.Pow.html
+           //https://docs.unity3d.com/es/530/ScriptReference/Mathf.Pow.html
 
             distance = Mathf.Pow(a.x - b.x, squaredNumber) + Mathf.Pow(a.y - b.y, squaredNumber) + Mathf.Pow(a.z - b.z, squaredNumber);
 
-            https://docs.unity3d.com/es/530/ScriptReference/Mathf.Sqrt.html
+            //https://docs.unity3d.com/es/530/ScriptReference/Mathf.Sqrt.html
 
             return Mathf.Sqrt(distance); ;
         }
         public static float Dot(Vec3 a, Vec3 b)
         {
-            https://docs.unity3d.com/ScriptReference/Vector3.Dot.html
+            //https://docs.unity3d.com/ScriptReference/Vector3.Dot.html
 
             return a.x * b.x + a.y * b.y + a.z * b.z;
         }
@@ -235,7 +235,14 @@ namespace CustomMath
         }
         public void Normalize()
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3-normalized.html
+            //https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/vector-magnitude-normalization#:~:text=To%20normalize%20a%20vector%2C%20therefore,the%20unit%20vector%20readily%20accessible.
+
+            float magnitude = Magnitude(this);
+            
+            x = x / magnitude;
+            y = y / magnitude;
+            z = z / magnitude;
         }
         #endregion
 
