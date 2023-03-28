@@ -185,7 +185,12 @@ namespace CustomMath
         }
         public static Vec3 Lerp(Vec3 a, Vec3 b, float t)
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
+
+            Vec3 direction = (b - a);
+            if (t < 0) t = 0;
+            if (t > 1) t = 1;
+            return a + (t * direction);
         }
         public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t)
         {
