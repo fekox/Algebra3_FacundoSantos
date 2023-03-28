@@ -137,7 +137,11 @@ namespace CustomMath
         }
         public static Vec3 ClampMagnitude(Vec3 vector, float maxLength)
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3.ClampMagnitude.html
+
+            if (vector.magnitude > maxLength) { return vector.normalized * maxLength; }
+
+            else { return vector; }
         }
         public static float Magnitude(Vec3 vector)
         {
