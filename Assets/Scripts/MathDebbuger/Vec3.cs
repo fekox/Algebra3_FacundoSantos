@@ -110,11 +110,13 @@ namespace CustomMath
         }
         public static Vec3 operator *(float scalar, Vec3 v3)
         {
-            return new Vec3(scalar * v3.x,scalar * v3.y, scalar * v3.z);
+            return new Vec3(scalar * v3.x, scalar * v3.y, scalar * v3.z);
         }
         public static Vec3 operator /(Vec3 v3, float scalar)
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3-operator_divide.html
+
+            return new Vec3(v3.x / scalar, v3.y / scalar, v3.z / scalar);
         }
 
         public static implicit operator Vector3(Vec3 v3)
