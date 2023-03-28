@@ -131,6 +131,8 @@ namespace CustomMath
         }
         public static float Angle(Vec3 from, Vec3 to)
         {
+            //https://docs.unity3d.com/ScriptReference/Vector3.Angle.html
+
             return Mathf.Acos(Vec3.Dot(from.normalized, to.normalized) * 180 / MathF.PI);
         }
         public static Vec3 ClampMagnitude(Vec3 vector, float maxLength)
@@ -139,12 +141,16 @@ namespace CustomMath
         }
         public static float Magnitude(Vec3 vector)
         {
+            //https://docs.unity3d.com/ScriptReference/Vector3-magnitude.html
+
             float magnitude = Mathf.Pow(vector.x, 2) + Mathf.Pow(vector.y, 2) + Mathf.Pow(vector.z, 2);
 
             return magnitude;
         }
         public static Vec3 Cross(Vec3 a, Vec3 b)
         {
+            //https://docs.unity3d.com/ScriptReference/Vector3.Cross.html
+
             Vec3 c = new Vec3();
 
             c.x = ((a.y * b.z) - (a.z * b.y));
@@ -183,6 +189,8 @@ namespace CustomMath
         }
         public static Vec3 Max(Vec3 a, Vec3 b)
         {
+            //https://docs.unity3d.com/ScriptReference/Vector3.Max.html
+
             Vec3 vector = new Vec3();
 
             if (a.x > b.x) vector.x = a.x;
@@ -198,6 +206,8 @@ namespace CustomMath
         }
         public static Vec3 Min(Vec3 a, Vec3 b)
         {
+            //https://docs.unity3d.com/ScriptReference/Vector3.Min.html
+
             Vec3 vector = new Vec3();
 
             if (a.x < b.x) vector.x = a.x;
@@ -229,9 +239,9 @@ namespace CustomMath
         }
         public void Set(float newX, float newY, float newZ)
         {
-            this.x = newX;
-            this.y = newY;
-            this.z = newZ;
+            x = newX;
+            y = newY;
+            z = newZ;
         }
         public void Scale(Vec3 scale)
         {
