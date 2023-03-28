@@ -205,14 +205,14 @@ namespace CustomMath
 
             Vec3 vector = new Vec3();
 
-            if (a.x > b.x) vector.x = a.x;
-            else vector.x = b.x;
+            if (a.x > b.x) { vector.x = a.x; }
+            else {vector.x = b.x; }
 
-            if (a.y > b.y) vector.y = a.y;
-            else vector.y = b.y;
+            if (a.y > b.y) { vector.y = a.y; }
+            else { vector.y = b.y; }
 
-            if (a.z > b.z) vector.z = a.z;
-            else vector.z = b.z;
+            if (a.z > b.z) { vector.z = a.z; }
+            else { vector.z = b.z; }
 
             return vector;
         }
@@ -258,7 +258,9 @@ namespace CustomMath
         }
         public static Vec3 Reflect(Vec3 inDirection, Vec3 inNormal) 
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3.Reflect.html
+
+            return inDirection - 2 * (Dot(inDirection, inNormal)) * inNormal;
         }
         public void Set(float newX, float newY, float newZ)
         {
