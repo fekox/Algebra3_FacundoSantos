@@ -194,7 +194,10 @@ namespace CustomMath
         }
         public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t)
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3.LerpUnclamped.html
+
+            Vec3 direction = (b - a);
+            return a + (t * direction);
         }
         public static Vec3 Max(Vec3 a, Vec3 b)
         {
