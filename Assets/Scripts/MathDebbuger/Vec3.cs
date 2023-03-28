@@ -126,7 +126,7 @@ namespace CustomMath
 
         public static implicit operator Vector2(Vec3 v2)
         {
-            throw new NotImplementedException();
+            return new Vector2(v2.x, v2.y);
         }
         #endregion
 
