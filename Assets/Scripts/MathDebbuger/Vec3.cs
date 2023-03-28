@@ -245,7 +245,11 @@ namespace CustomMath
         }
         public void Scale(Vec3 scale)
         {
-            throw new NotImplementedException();
+            //https://docs.unity3d.com/ScriptReference/Vector3.Scale.html
+
+            x = x * scale.x;
+            y = y * scale.y;
+            z = z * scale.z;
         }
         public void Normalize()
         {
