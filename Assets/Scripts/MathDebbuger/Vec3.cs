@@ -92,6 +92,8 @@ namespace CustomMath
 
         public static Vec3 operator -(Vec3 leftV3, Vec3 rightV3)
         {
+            //https://docs.unity3d.com/ScriptReference/Vector3-operator_subtract.html
+
             return new Vec3(leftV3.x - rightV3.x, leftV3.y - rightV3.y, leftV3.z - rightV3.z);
         }
 
