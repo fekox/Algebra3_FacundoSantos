@@ -12,9 +12,9 @@ namespace CustomMath
         public float y;
         public float z;
 
-        public float sqrMagnitude { get { return (x * x + y * y + z * z); } }
-        public Vec3 normalized { get { return new Vec3(x / magnitude, y / magnitude, z / magnitude); } }
-        public float magnitude { get { return Mathf.Pow(x, 2) + Mathf.Pow(y, 2) + Mathf.Pow(z, 2); } }
+        public float sqrMagnitude { get { return (x * x + y * y + z * z); } } //Devuelve la longitud del vector al cuadrado.
+        public Vec3 normalized { get { return new Vec3(x / magnitude, y / magnitude, z / magnitude); } } //Devuelve el vector normalizado. 
+        public float magnitude { get { return Mathf.Pow(x, 2) + Mathf.Pow(y, 2) + Mathf.Pow(z, 2); } } //Devuelve la longitud del vector.
         #endregion
 
         #region constants
@@ -22,7 +22,7 @@ namespace CustomMath
         #endregion
 
         #region Default Values
-        public static Vec3 Zero { get { return new Vec3(0.0f, 0.0f, 0.0f); } }
+        public static Vec3 Zero { get { return new Vec3(0.0f, 0.0f, 0.0f); } } 
         public static Vec3 One { get { return new Vec3(1.0f, 1.0f, 1.0f); } }
         public static Vec3 Forward { get { return new Vec3(0.0f, 0.0f, 1.0f); } }
         public static Vec3 Back { get { return new Vec3(0.0f, 0.0f, -1.0f); } }
@@ -85,46 +85,46 @@ namespace CustomMath
             return !(left == right);
         }
 
-        public static Vec3 operator +(Vec3 leftV3, Vec3 rightV3)
+        public static Vec3 operator +(Vec3 leftV3, Vec3 rightV3) //Suma dos vectores.
         {
             return new Vec3(leftV3.x + rightV3.x, leftV3.y + rightV3.y, leftV3.z + rightV3.z);
         }
 
-        public static Vec3 operator -(Vec3 leftV3, Vec3 rightV3)
+        public static Vec3 operator -(Vec3 leftV3, Vec3 rightV3) //Resta dos vectores.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3-operator_subtract.html
 
             return new Vec3(leftV3.x - rightV3.x, leftV3.y - rightV3.y, leftV3.z - rightV3.z);
         }
 
-        public static Vec3 operator -(Vec3 v3)
+        public static Vec3 operator -(Vec3 v3) //Vuelve negativo un vector.
         {
             return new Vec3(-v3.x, -v3.y, -v3.z);
         }
 
-        public static Vec3 operator *(Vec3 v3, float scalar)
+        public static Vec3 operator *(Vec3 v3, float scalar) //Multiplica un vector por un numero.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3-operator_multiply.html
 
             return new Vec3(v3.x * scalar, v3.y * scalar, v3.z * scalar);
         }
-        public static Vec3 operator *(float scalar, Vec3 v3)
+        public static Vec3 operator *(float scalar, Vec3 v3) //Multiplica un vector por un numero.
         {
             return new Vec3(scalar * v3.x, scalar * v3.y, scalar * v3.z);
         }
-        public static Vec3 operator /(Vec3 v3, float scalar)
+        public static Vec3 operator /(Vec3 v3, float scalar) //Divide un vector por un numero.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3-operator_divide.html
 
             return new Vec3(v3.x / scalar, v3.y / scalar, v3.z / scalar);
         }
 
-        public static implicit operator Vector3(Vec3 v3)
+        public static implicit operator Vector3(Vec3 v3) //Devuelve un vector 3.
         {
             return new Vector3(v3.x, v3.y, v3.z);
         }
 
-        public static implicit operator Vector2(Vec3 v2)
+        public static implicit operator Vector2(Vec3 v2) //Devuelve un vector 2.
         {
             return new Vector2(v2.x, v2.y);
         }
@@ -135,13 +135,13 @@ namespace CustomMath
         {
             return "X = " + x.ToString() + "   Y = " + y.ToString() + "   Z = " + z.ToString();
         }
-        public static float Angle(Vec3 from, Vec3 to)
+        public static float Angle(Vec3 from, Vec3 to) //Calcula el angulo entre dos vectores.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Angle.html
 
             return Mathf.Acos(Vec3.Dot(from.normalized, to.normalized) * 180 / MathF.PI);
         }
-        public static Vec3 ClampMagnitude(Vec3 vector, float maxLength)
+        public static Vec3 ClampMagnitude(Vec3 vector, float maxLength) //Devuelve una copia del vector con su magnitud sujeta a maxima longitud.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.ClampMagnitude.html
 
@@ -149,7 +149,7 @@ namespace CustomMath
 
             else { return vector; }
         }
-        public static float Magnitude(Vec3 vector)
+        public static float Magnitude(Vec3 vector) //Devuelve la magnitud del vector.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3-magnitude.html
 
@@ -157,7 +157,7 @@ namespace CustomMath
 
             return magnitude;
         }
-        public static Vec3 Cross(Vec3 a, Vec3 b)
+        public static Vec3 Cross(Vec3 a, Vec3 b) //Hace el producto cruz entre dos vectores.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Cross.html
 
@@ -169,7 +169,7 @@ namespace CustomMath
 
             return c;
         }
-        public static float Distance(Vec3 a, Vec3 b)
+        public static float Distance(Vec3 a, Vec3 b) //Calcula la distancia entre dos vectores.
         {
             float distance = 0;
 
@@ -183,13 +183,13 @@ namespace CustomMath
 
             return Mathf.Sqrt(distance); ;
         }
-        public static float Dot(Vec3 a, Vec3 b)
+        public static float Dot(Vec3 a, Vec3 b) //Devuelve un vector escalado.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Dot.html
 
             return a.x * b.x + a.y * b.y + a.z * b.z;
         }
-        public static Vec3 Lerp(Vec3 a, Vec3 b, float t)
+        public static Vec3 Lerp(Vec3 a, Vec3 b, float t) //Interpola linealmente entre dos puntos (Calcular el valor aproximado de una magnitud entre dos puntos).
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Lerp.html
 
@@ -198,14 +198,14 @@ namespace CustomMath
             if (t > 1) t = 1;
             return a + (t * direction);
         }
-        public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t)
+        public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t) //Interpola linealmente entre dos vectores (Calcular el valor aproximado de una magnitud entre dos vectores).
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.LerpUnclamped.html
 
             Vec3 direction = (b - a);
             return a + (t * direction);
         }
-        public static Vec3 Max(Vec3 a, Vec3 b)
+        public static Vec3 Max(Vec3 a, Vec3 b) //Devuelve los valores mas altos entre dos vectores.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Max.html
 
@@ -222,7 +222,7 @@ namespace CustomMath
 
             return vector;
         }
-        public static Vec3 Min(Vec3 a, Vec3 b)
+        public static Vec3 Min(Vec3 a, Vec3 b) // devuelve los valores mas bajos entre dos vectores.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Min.html
 
@@ -239,7 +239,7 @@ namespace CustomMath
 
             return vector;
         }
-        public static float SqrMagnitude(Vec3 vector)
+        public static float SqrMagnitude(Vec3 vector) //Devuelve la longitud del vector al cuadrado.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3-sqrMagnitude.html
 
@@ -247,7 +247,7 @@ namespace CustomMath
 
             return sqrMagnitude;
         }
-        public static Vec3 Project(Vec3 vector, Vec3 onNormal) 
+        public static Vec3 Project(Vec3 vector, Vec3 onNormal) //Proyecta un vector sobre otro.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Project.html
 
@@ -262,19 +262,19 @@ namespace CustomMath
                 return onNormal * dot / sqrMag;
             }
         }
-        public static Vec3 Reflect(Vec3 inDirection, Vec3 inNormal) 
+        public static Vec3 Reflect(Vec3 inDirection, Vec3 inNormal) //Refleja un vector del plano definido por una normal.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Reflect.html
 
             return inDirection - 2 * (Dot(inDirection, inNormal)) * inNormal;
         }
-        public void Set(float newX, float newY, float newZ)
+        public void Set(float newX, float newY, float newZ) //Setea los valores de un vector.
         {
             x = newX;
             y = newY;
             z = newZ;
         }
-        public void Scale(Vec3 scale)
+        public void Scale(Vec3 scale) //Scala un vector. 
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.Scale.html
 
@@ -282,12 +282,12 @@ namespace CustomMath
             y = y * scale.y;
             z = z * scale.z;
         }
-        public void Normalize()
+        public void Normalize() //Hace que este vector tenga una magnitud de 1.
         {
             //https://docs.unity3d.com/ScriptReference/Vector3-normalized.html
             //https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/vector-magnitude-normalization#:~:text=To%20normalize%20a%20vector%2C%20therefore,the%20unit%20vector%20readily%20accessible.
 
-            float magnitude = Magnitude(this);
+        float magnitude = Magnitude(this);
             
             x = x / magnitude;
             y = y / magnitude;
