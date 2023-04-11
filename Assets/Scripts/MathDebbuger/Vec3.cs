@@ -5,6 +5,8 @@ using System;
 
 namespace CustomMath
 {
+    [Serializable]
+
     public struct Vec3 : IEquatable<Vec3>
     {
         #region Variables
@@ -13,7 +15,7 @@ namespace CustomMath
         public float z;
         public float sqrMagnitude { get { return (x * x + y * y + z * z); } } //Devuelve la longitud del vector al cuadrado.
         public Vec3 normalized { get { return new Vec3(x / magnitude, y / magnitude, z / magnitude); } } //Devuelve el vector normalizado. 
-        public float magnitude { get { return Mathf.Pow(x, 2) + Mathf.Pow(y, 2) + Mathf.Pow(z, 2); } } //Devuelve la longitud del vector.
+        public float magnitude { get { return MathF.Sqrt(Mathf.Pow(x, 2) + Mathf.Pow(y, 2) + Mathf.Pow(z, 2)); } } //Devuelve la longitud del vector.
         #endregion
 
         #region constants
@@ -21,7 +23,7 @@ namespace CustomMath
         #endregion
 
         #region Default Values
-        public static Vec3 Zero { get { return new Vec3(0.0f, 0.0f, 0.0f); } } 
+        public static Vec3 Zero { get { return new Vec3(0.0f, 0.0f, 0.0f); } }
         public static Vec3 One { get { return new Vec3(1.0f, 1.0f, 1.0f); } }
         public static Vec3 Forward { get { return new Vec3(0.0f, 0.0f, 1.0f); } }
         public static Vec3 Back { get { return new Vec3(0.0f, 0.0f, -1.0f); } }
@@ -174,7 +176,7 @@ namespace CustomMath
 
             const float squaredNumber = 2;
 
-           //https://docs.unity3d.com/es/530/ScriptReference/Mathf.Pow.html
+            //https://docs.unity3d.com/es/530/ScriptReference/Mathf.Pow.html
 
             distance = Mathf.Pow(a.x - b.x, squaredNumber) + Mathf.Pow(a.y - b.y, squaredNumber) + Mathf.Pow(a.z - b.z, squaredNumber);
 
@@ -195,14 +197,14 @@ namespace CustomMath
             Vec3 direction = (b - a);
             if (t < 0) t = 0;
             if (t > 1) t = 1;
-            return a + (t * direction);
+            return a + (direction * t);
         }
         public static Vec3 LerpUnclamped(Vec3 a, Vec3 b, float t) //Interpola linealmente entre dos vectores (Calcular el valor aproximado de una magnitud entre dos vectores).
         {
             //https://docs.unity3d.com/ScriptReference/Vector3.LerpUnclamped.html
 
             Vec3 direction = (b - a);
-            return a + (t * direction);
+            return a + (direction * t);
         }
         public static Vec3 Max(Vec3 a, Vec3 b) //Devuelve los valores mas altos entre dos vectores.
         {
@@ -211,7 +213,7 @@ namespace CustomMath
             Vec3 vector = new Vec3();
 
             if (a.x > b.x) { vector.x = a.x; }
-            else {vector.x = b.x; }
+            else { vector.x = b.x; }
 
             if (a.y > b.y) { vector.y = a.y; }
             else { vector.y = b.y; }
@@ -286,8 +288,8 @@ namespace CustomMath
             //https://docs.unity3d.com/ScriptReference/Vector3-normalized.html
             //https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-vectors/a/vector-magnitude-normalization#:~:text=To%20normalize%20a%20vector%2C%20therefore,the%20unit%20vector%20readily%20accessible.
 
-        float magnitude = Magnitude(this);
-            
+            float magnitude = Magnitude(this);
+
             x = x / magnitude;
             y = y / magnitude;
             z = z / magnitude;
